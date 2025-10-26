@@ -1,0 +1,28 @@
+<div style="padding: 1rem; max-width: 600px; margin: auto;">
+  <h2>Angular Chat</h2>
+
+  <ul style="list-style: none; padding: 0; max-height: 300px; overflow-y: auto;">
+    <li *ngFor="let msg of messages">
+      <strong>{{ msg.user }}</strong>
+      <span style="color: gray; font-size: 0.8rem;">
+        ({{ msg.timestamp | date:'shortTime' }})
+      </span>
+      : {{ msg.text }}
+    </li>
+  </ul>
+
+  <form (ngSubmit)="sendMessage()">
+    <input
+      type="text"
+      [(ngModel)]="message"
+      name="message"
+      placeholder="Type a message..."
+      style="width: 70%; padding: 0.5rem;"
+    />
+    <button
+      type="submit"
+      style="padding: 0.5rem 1rem; margin-left: 0.5rem;">
+      Send
+    </button>
+  </form>
+</div>
